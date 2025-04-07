@@ -28,7 +28,7 @@ export function Navigation() {
           <Link href="/" className="font-clash-display text-2xl bg-gradient-to-r from-cyber-blue to-cyber-purple bg-clip-text text-transparent">
             Alex Fuego
           </Link>
-          
+
           <div className="hidden md:flex space-x-8">
             <NavLink href="#projects">Projects</NavLink>
             <NavLink href="#about">About</NavLink>

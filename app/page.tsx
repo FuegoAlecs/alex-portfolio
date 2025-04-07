@@ -1,89 +1,88 @@
 'use client'
 
-import { Canvas } from '@react-three/fiber'
-import { OrbitControls, Environment } from '@react-three/drei'
-import { Mascot } from '../components/Mascot'
+import { motion } from 'framer-motion'
 import { Navigation } from '../components/Navigation'
 import { Projects } from '../components/Projects'
 import { Skills } from '../components/Skills'
 import { Contact } from '../components/Contact'
-import { motion } from 'framer-motion'
+import { Footer } from '../components/Footer'
+import { GridBackground } from '../components/GridBackground'
+import { Mascot } from '../components/Mascot'
 
 export default function Home() {
   return (
-    <>
+    <main className="min-h-screen bg-cyber-dark text-white">
+      <GridBackground />
       <Navigation />
-      <main className="min-h-screen">
-        {/* Hero Section */}
-        <section className="relative h-screen flex items-center justify-center overflow-hidden">
-          {/* Background Effects */}
-          <div className="absolute inset-0 bg-gradient-to-br from-cyber-dark via-cyber-purple/20 to-cyber-blue/20 animate-gradient-x" />
-          <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-20" />
-          
-          {/* Content */}
-          <div className="container mx-auto px-4 z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-              {/* Text Content */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="text-center lg:text-left"
-              >
-                <h1 className="font-inter text-5xl md:text-7xl mb-6 bg-gradient-to-r from-cyber-blue via-cyber-purple to-cyber-pink bg-clip-text text-transparent">
-                  Alex Fuego
-                </h1>
-                <p className="text-xl md:text-2xl mb-8 text-gray-300">
-                  Web3 Developer & Blockchain Enthusiast
-                </p>
-                <div className="flex gap-4 justify-center lg:justify-start">
-                  <a
-                    href="https://twitter.com/FuegoAlec"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-6 py-3 bg-cyber-blue/10 border border-cyber-blue rounded-lg hover:bg-cyber-blue/20 transition-colors"
-                  >
-                    Twitter
-                  </a>
-                  <a
-                    href="https://t.me/FuegoAlec"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-6 py-3 bg-cyber-purple/10 border border-cyber-purple rounded-lg hover:bg-cyber-purple/20 transition-colors"
-                  >
-                    Telegram
-                  </a>
-                </div>
-              </motion.div>
 
-              {/* 3D Scene */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8 }}
-                className="h-[500px] w-full"
-              >
-                <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
-                  <ambientLight intensity={0.5} />
-                  <pointLight position={[10, 10, 10]} />
-                  <Mascot />
-                  <OrbitControls enableZoom={false} />
-                  <Environment preset="city" />
-                </Canvas>
-              </motion.div>
-            </div>
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-cyber-dark via-cyber-dark/90 to-cyber-dark/80" />
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="space-y-6"
+            >
+              <h1 className="font-clash-display text-5xl md:text-6xl lg:text-7xl bg-gradient-to-r from-cyber-blue to-cyber-purple bg-clip-text text-transparent">
+                Alex Fuego
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-400">
+                Web3 Developer & Creative Technologist
+              </p>
+              <p className="text-gray-400 max-w-xl">
+                Crafting immersive digital experiences at the intersection of Web3, 3D, and interactive design.
+              </p>
+              <div className="flex space-x-4">
+                <motion.a
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  href="#projects"
+                  className="px-6 py-3 bg-gradient-to-r from-cyber-blue to-cyber-purple text-white rounded-lg font-medium hover:opacity-90 transition-opacity"
+                >
+                  View Projects
+                </motion.a>
+                <motion.a
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  href="#contact"
+                  className="px-6 py-3 border border-cyber-blue/20 text-cyber-blue rounded-lg font-medium hover:bg-cyber-blue/10 transition-colors"
+                >
+                  Get in Touch
+                </motion.a>
+              </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="relative h-[500px]"
+            >
+              <Mascot />
+            </motion.div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Projects Section */}
+      {/* Projects Section */}
+      <section id="projects" className="py-20">
         <Projects />
+      </section>
 
-        {/* Skills Section */}
+      {/* Skills Section */}
+      <section id="skills" className="py-20">
         <Skills />
+      </section>
 
-        {/* Contact Section */}
+      {/* Contact Section */}
+      <section id="contact" className="py-20">
         <Contact />
-      </main>
-    </>
+      </section>
+
+      {/* Footer */}
+      <Footer />
+    </main>
   )
 } 

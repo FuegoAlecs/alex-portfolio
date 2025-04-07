@@ -4,16 +4,16 @@ import { motion } from 'framer-motion'
 
 const skills = [
   {
-    category: 'Blockchain',
+    category: 'Web3 Development',
     items: [
       { name: 'Solidity', level: 90 },
-      { name: 'Web3.js', level: 85 },
+      { name: 'Smart Contracts', level: 85 },
+      { name: 'Web3.js', level: 80 },
       { name: 'Ethereum', level: 85 },
-      { name: 'Smart Contracts', level: 90 },
     ],
   },
   {
-    category: 'Frontend',
+    category: 'Frontend Development',
     items: [
       { name: 'React', level: 95 },
       { name: 'Next.js', level: 90 },
@@ -22,12 +22,12 @@ const skills = [
     ],
   },
   {
-    category: 'Backend',
+    category: '3D & Animation',
     items: [
-      { name: 'Node.js', level: 85 },
-      { name: 'Express', level: 80 },
-      { name: 'MongoDB', level: 80 },
-      { name: 'PostgreSQL', level: 75 },
+      { name: 'Three.js', level: 80 },
+      { name: 'React Three Fiber', level: 75 },
+      { name: 'Framer Motion', level: 85 },
+      { name: 'Blender', level: 70 },
     ],
   },
 ]
@@ -44,35 +44,29 @@ export function Skills() {
           className="text-center mb-16"
         >
           <h2 className="font-clash-display text-4xl md:text-5xl mb-4 bg-gradient-to-r from-cyber-blue to-cyber-purple bg-clip-text text-transparent">
-            Technical Skills
+            Skills & Expertise
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            My expertise spans across blockchain development, frontend technologies, and backend systems.
+            My technical skills and expertise in Web3 development, frontend technologies, and 3D animation.
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {skills.map((category, categoryIndex) => (
+          {skills.map((category, index) => (
             <motion.div
               key={category.category}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: categoryIndex * 0.2 }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
               className="bg-cyber-dark/50 rounded-xl p-6 border border-cyber-blue/20 hover:border-cyber-blue/40 transition-colors"
             >
               <h3 className="font-clash-display text-xl mb-6 text-cyber-blue">
                 {category.category}
               </h3>
               <div className="space-y-4">
-                {category.items.map((skill, skillIndex) => (
-                  <motion.div
-                    key={skill.name}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: skillIndex * 0.1 }}
-                  >
+                {category.items.map((skill) => (
+                  <div key={skill.name}>
                     <div className="flex justify-between mb-1">
                       <span className="text-gray-300">{skill.name}</span>
                       <span className="text-cyber-blue">{skill.level}%</span>
@@ -82,11 +76,11 @@ export function Skills() {
                         initial={{ width: 0 }}
                         whileInView={{ width: `${skill.level}%` }}
                         viewport={{ once: true }}
-                        transition={{ duration: 1, delay: skillIndex * 0.1 }}
+                        transition={{ duration: 1, delay: 0.5 }}
                         className="h-full bg-gradient-to-r from-cyber-blue to-cyber-purple"
                       />
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </motion.div>
