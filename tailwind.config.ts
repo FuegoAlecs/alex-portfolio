@@ -9,8 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        'space-grotesk': ['Space Grotesk', 'sans-serif'],
-        'clash-display': ['Clash Display', 'sans-serif'],
+        'space-grotesk': ['var(--font-space-grotesk)', 'sans-serif'],
+        'inter': ['var(--font-inter)', 'sans-serif'],
       },
       colors: {
         'cyber-blue': '#00F5FF',

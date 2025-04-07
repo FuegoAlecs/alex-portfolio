@@ -2,11 +2,11 @@
 
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls, Environment } from '@react-three/drei'
-import { Mascot } from '@/components/Mascot'
-import { Navigation } from '@/components/Navigation'
-import { Projects } from '@/components/Projects'
-import { Skills } from '@/components/Skills'
-import { Contact } from '@/components/Contact'
+import { Mascot } from '../components/Mascot'
+import { Navigation } from '../components/Navigation'
+import { Projects } from '../components/Projects'
+import { Skills } from '../components/Skills'
+import { Contact } from '../components/Contact'
 import { motion } from 'framer-motion'
 
 export default function Home() {
@@ -30,7 +30,7 @@ export default function Home() {
                 transition={{ duration: 0.8 }}
                 className="text-center lg:text-left"
               >
-                <h1 className="font-clash-display text-5xl md:text-7xl mb-6 bg-gradient-to-r from-cyber-blue via-cyber-purple to-cyber-pink bg-clip-text text-transparent">
+                <h1 className="font-inter text-5xl md:text-7xl mb-6 bg-gradient-to-r from-cyber-blue via-cyber-purple to-cyber-pink bg-clip-text text-transparent">
                   Alex Fuego
                 </h1>
                 <p className="text-xl md:text-2xl mb-8 text-gray-300">

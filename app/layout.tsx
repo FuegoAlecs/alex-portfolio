@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Space_Grotesk, Clash_Display } from 'next/font/google'
+import { Space_Grotesk, Inter } from 'next/font/google'
 import './globals.css'
 
 const spaceGrotesk = Space_Grotesk({ 
@@ -7,9 +7,10 @@ const spaceGrotesk = Space_Grotesk({
   variable: '--font-space-grotesk',
 })
 
-const clashDisplay = Clash_Display({
+const inter = Inter({
   subsets: ['latin'],
-  variable: '--font-clash-display',
+  variable: '--font-inter',
+  weight: ['400', '500', '600', '700'],
 })
 
 export const metadata: Metadata = {
@@ -23,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${clashDisplay.variable}`}>
+    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable}`}>
       <body className="bg-cyber-dark text-white font-space-grotesk">
         {children}
       </body>
